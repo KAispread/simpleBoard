@@ -11,5 +11,5 @@
 	
 	<typeAliases>
 		<typeAlias alias="boardVO" type="com.board.mvc.view.domain.BoardVO" />
-	</typeAliases>>
+	</typeAliases>
 </configuration>
