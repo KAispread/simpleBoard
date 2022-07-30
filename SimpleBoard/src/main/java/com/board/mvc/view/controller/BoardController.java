@@ -3,9 +3,12 @@ package com.board.mvc.view.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.board.mvc.view.domain.BoardVO;
 import com.board.mvc.view.service.BoardService;
 
 @Controller
@@ -25,8 +28,19 @@ public class BoardController {
 		return "/board/read";
 	}
 	
-	@RequestMapping(value="/board/write")
-	public String write() {
+	@RequestMapping(value="/board/write", method=RequestMethod.GET)
+	public String write(Model model) {
+		model.addAttribute("boardVO", new BoardVO());
 		return "/board/write";
+	}
+	
+	@RequestMapping(value="/board/write", method=RequestMethod.POST)
+	public String write(BoardVO boardVO, BindingResult bingdingResult) {
+		if(bingdingResult.hasErrors()) {
+			return "/board/write";
+		} else {
+			boardService.write(boardVO);
+			return "redirect:/board/list";
+		}
 	}
 }
