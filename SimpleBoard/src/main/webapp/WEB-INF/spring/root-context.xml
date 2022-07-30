@@ -9,9 +9,9 @@
 		
 	<jdbc:embedded-database id="dataSource" type="HSQL">
 		<jdbc:script location="classpath:BoardSchema.sql" />
-		<jdbc:script location="classpath:BoardData.sql"/>
-	</jdbc:embedded-database>	
-	
+		<jdbc:script location="classpath:BoardData.sql" />
+	</jdbc:embedded-database>
+
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:sqlmap/config/mybatis-config.xml" />
@@ -21,7 +21,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
