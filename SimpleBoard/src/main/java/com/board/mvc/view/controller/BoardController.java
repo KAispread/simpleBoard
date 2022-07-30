@@ -1,5 +1,7 @@
 package com.board.mvc.view.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +37,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/board/write", method=RequestMethod.POST)
-	public String write(BoardVO boardVO, BindingResult bingdingResult) {
+	public String write(@Valid BoardVO boardVO, BindingResult bingdingResult) {
 		if(bingdingResult.hasErrors()) {
 			return "/board/write";
 		} else {
