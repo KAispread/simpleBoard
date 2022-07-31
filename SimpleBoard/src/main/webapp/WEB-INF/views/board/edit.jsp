@@ -26,13 +26,13 @@
 					<form:errors path="writer" /></td>
 			</tr>
 			<tr>
-				<th><form:label path="password">비밀번호</form:label></th>
-				<td><form:input path="password" />
-					<form:errors path="password" /></td>
+				<th><label for="password">비밀번호</label></th>
+				<td><input type="password" id="pwd" name="pwd" />${msg}</td>
 			</tr>
 		</table>
 		<div>
-			<input type="submit" value="등록"> <a href="<c:url value="/board/list" />">목록</a>
+			<input type="submit" value="등록"> <a
+				href="<c:url value="/board/list" />">목록</a>
 		</div>
 	</form:form>
 </body>

@@ -18,6 +18,7 @@ public class BoardVO {
 	
 	@NotEmpty(message = "작성자를 입력하세요.")
 	private String writer;
+	
 	private int password;
 	private Timestamp regDate;
 	private int cnt;
